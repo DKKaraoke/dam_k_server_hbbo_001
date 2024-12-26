@@ -17,6 +17,3 @@ USER python
 
 # Install Poetry
 RUN curl -sSL https://install.python-poetry.org | python3 -
-
-# Create working directory
-WORKDIR /home/python/workspace/

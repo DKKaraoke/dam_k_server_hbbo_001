@@ -3,10 +3,10 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
-  "workspaceFolder": "/home/python/workspace/",
+  "workspaceFolder": "/workspace/",
   "remoteUser": "python",
   "mounts": [
-    "source=${localWorkspaceFolder},target=/home/python/workspace/,type=bind,consistency=cached"
+    "source=${localWorkspaceFolder},target=/workspace/,type=bind,consistency=cached"
   ],
   "onCreateCommand": ".devcontainer/on_create.sh",
   "customizations": {
