@@ -6,7 +6,7 @@ from dam_k_server_hbbo_001 import make_payload
 
 
 class Cli:
-    """PoC of DAM KServer OOBR vulnerability CLI
+    """PoC of DAM KServer HBBO vulnerability CLI
 
     Args:
         log_level (str, optional): Log level. Defaults to "INFO". {CRITICAL|FATAL|ERROR|WARN|WARNING|INFO|DEBUG|NOTSET}
@@ -26,7 +26,7 @@ class Cli:
         )
 
     def __init__(self, log_level="INFO") -> None:
-        """PoC of DAM KServer OOBR vulnerability CLI
+        """PoC of DAM KServer HBBO vulnerability CLI
 
         Args:
             log_level (str, optional): Log level. Defaults to "INFO". {CRITICAL|FATAL|ERROR|WARN|WARNING|INFO|DEBUG|NOTSET}
