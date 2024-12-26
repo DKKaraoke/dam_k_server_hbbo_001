@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "dam-k-server-hbbo-001"
+version = "0.1.0"
+description = "PoC of DAM KServer HBBO vulnerability"
+authors = ["soltia48 <soltia48@protonmail.com>"]
+license = "MIT"
+# readme = "README.md"
+packages = [
+    {include = "dam_k_server_hbbo_001"},
+    {include = "dam_k_server_hbbo_001_cli"}
+]
+
+[tool.poetry.scripts]
+dam-k-server-hbbo-001 = "dam_k_server_hbbo_001_cli.cli:main"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+fire = "^0.7.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.10.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

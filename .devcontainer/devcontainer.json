@@ -1,0 +1,22 @@
+{
+  "name": "dam-k-server-oobr-001 Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "workspaceFolder": "/home/python/workspace/",
+  "remoteUser": "python",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/home/python/workspace/,type=bind,consistency=cached"
+  ],
+  "onCreateCommand": ".devcontainer/on_create.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-docker",
+        "ms-python.python",
+        "ms-python.black-formatter",
+        "njpwerner.autodocstring"
+      ]
+    }
+  }
+}
