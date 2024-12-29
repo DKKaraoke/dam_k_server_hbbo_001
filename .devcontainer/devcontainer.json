@@ -1,5 +1,5 @@
 {
-  "name": "dam-k-server-hbbo-001 Dev Container",
+  "name": "dam-k-server-hbbo-001",
   "build": {
     "dockerfile": "Dockerfile"
   },
